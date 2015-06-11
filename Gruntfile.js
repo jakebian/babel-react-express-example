@@ -3,20 +3,23 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
+
         babel: {
+
             options: {
                 sourceMap: true
             },
-        dist: {
-            files: {
-                '*/dist/**/*.js': '*/src/**/*.js'
+            dist: {
+                files: {
+                   "./server/build/server.js": ["./server/src/server.js"]
+                }
             }
-        }
-      },
+
+        },
 
       watch: {
         scripts: {
-            files: ['*/src/**/*.js'],
+            files: ['**/src/**/*.js'],
             tasks: ['babel'],
         },
       },
