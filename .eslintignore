@@ -1,4 +1,4 @@
 node_modules
 Gruntfile.js
-**/build
+**/**/build
 client/js/deps

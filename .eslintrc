@@ -8,5 +8,20 @@
 
     "rules": {
         "quotes": [2, "single", "avoid-escape"],
+        "react/jsx-uses-vars": 1,
+        "react/jsx-uses-react": 1,
+    },
+
+    "plugins": [
+        "react"
+    ],
+
+    "globals": {
+        "React": true
+    },
+
+    "ecmaFeatures": {
+        "jsx": true
     }
+
 }

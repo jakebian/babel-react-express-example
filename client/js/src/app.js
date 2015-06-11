@@ -1,33 +1,21 @@
 'use strict';
 
+import {CommentBox} from './components/comment-box.js';
 
-class Person {
 
-    constructor(name) {
-        this.name = name;
+var data = [
+    {
+        author: 'M. F. Atiyah',
+        text: 'The geometry of gauge fields'
+    },
+    {
+        author: 'A. Hatcher',
+        text: 'Algebraic geometry'
     }
+];
 
-    scream() {
-        console.log(`ahh! Save ${this.name}!`);
-    }
 
-}
-
-class Hobo extends Person {
-
-    constructor(name) {
-        super(name);
-        this.hoboName = name + 'eski';
-    }
-
-    scream() {
-        console.log(`Yo dawg, ${this.hoboName} here`);
-        super.scream();
-    }
-}
-
-let bart = new Person('bart');
-let homer = new Hobo('homer');
-
-bart.scream();
-homer.scream();
+React.render(
+    <CommentBox data={data}/>,
+    document.getElementById('content')
+);

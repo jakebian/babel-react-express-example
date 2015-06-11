@@ -4,6 +4,21 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
 
+        browserify: {
+
+            dist: {
+                options: {
+                    transform: [
+                        ["babelify", { "stage": 0 }]
+                    ]
+                },
+                files: {
+                    "client/js/build/bundle.js": "client/js/src/app.js"
+                }
+            }
+        },
+
+
         babel: {
 
             options: {
@@ -13,15 +28,8 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'client/js/src',
-                        src: ['**/*.js'],
-                        dest: 'client/js/build/',
-                        ext:'.js'
-                    },
-                    {
-                        expand: true,
                         cwd: 'server/src',
-                        src: ['**/*.js'],
+                        src: ['**/*.*'],
                         dest: 'server/build/',
                         ext:'.js'
                     }
@@ -32,8 +40,8 @@ module.exports = function (grunt) {
 
         watch: {
             scripts: {
-                files: ['**/src/**/*.js'],
-                tasks: ['babel'],
+                files: ['**/src/**/*.*'],
+                tasks: ['build'],
             },
         },
 
@@ -43,7 +51,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         flatten: true,
-                        src: 'node_modules/react/dist/*.js',
+                        src: 'node_modules/react/dist/*.*',
                         dest: 'client/deps/react/'
                     }
                 ]
@@ -52,6 +60,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('loadDeps', ['copy'])
-    grunt.registerTask('default', ['babel']);
+    grunt.registerTask('build', ['babel', 'browserify'])
+    grunt.registerTask('default', ['build']);
 
 }
