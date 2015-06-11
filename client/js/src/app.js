@@ -1,21 +1,9 @@
 'use strict';
+import React from 'react';
 
 import {CommentBox} from './components/comment-box.js';
 
-
-var data = [
-    {
-        author: 'M. F. Atiyah',
-        text: 'The geometry of gauge fields'
-    },
-    {
-        author: 'A. Hatcher',
-        text: 'Algebraic geometry'
-    }
-];
-
-
 React.render(
-    <CommentBox data={data}/>,
+    <CommentBox url='/data/data.json'/>,
     document.getElementById('content')
 );

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "express": "^4.12.4",
+    "jquery": "^2.1.4",
     "react": "^0.13.3"
   }
 }

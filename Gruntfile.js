@@ -43,23 +43,9 @@ module.exports = function (grunt) {
                 files: ['**/src/**/*.*'],
                 tasks: ['build'],
             },
-        },
-
-        copy: {
-            main: {
-                files: [
-                    {
-                        expand: true,
-                        flatten: true,
-                        src: 'node_modules/react/dist/*.*',
-                        dest: 'client/deps/react/'
-                    }
-                ]
-            }
         }
     });
 
-    grunt.registerTask('loadDeps', ['copy'])
     grunt.registerTask('build', ['babel', 'browserify'])
     grunt.registerTask('default', ['build']);
 

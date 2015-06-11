@@ -1,4 +1,5 @@
 'use strict';
+import React from 'react';
 
 export class Comment extends React.Component {
 
